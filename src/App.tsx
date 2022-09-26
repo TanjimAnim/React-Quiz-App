@@ -32,10 +32,7 @@ function App() {
     setLoading(true);
     setGameOver(false);
 
-    const newQuestions = await fetchQuizQuestions(
-      TOTAL_QUESTIONS,
-      Difficulty.EASY
-    );
+    const newQuestions = await fetchQuizQuestions(TOTAL_QUESTIONS, Difficulty.EASY);
     setQuestions(newQuestions);
     setScore(0);
     setUserAnswers([]);
@@ -81,7 +78,7 @@ function App() {
           </button>
         ) : null}
 
-        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        {userAnswers.length === TOTAL_QUESTIONS ? (
           <p className='score'>Final Score:{score}</p>
         ) : (
           <p className='score'>Score:{score}</p>
